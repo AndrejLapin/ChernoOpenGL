@@ -621,6 +621,8 @@
     <ClInclude Include="src\Texture.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="res\textures\Comudoru.png" />
+    <Image Include="res\textures\DankSquirtle.png" />
     <Image Include="res\textures\FreshNewAvatar.png" />
     <Image Include="res\textures\SquirtleCloseUp.png" />
   </ItemGroup>

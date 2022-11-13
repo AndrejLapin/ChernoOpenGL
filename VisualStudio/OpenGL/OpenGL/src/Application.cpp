@@ -88,16 +88,18 @@ int main(void)
         IndexBuffer ib(indecies, 6);
 
         glm::mat4 proj = glm::ortho(-1.0f * Aspect, 1.0f * Aspect, -1.0f, 1.0f, -1.0f, 1.0f);
-        glm::mat4 view = glm::translate(glm::mat4(1.0f), glm::vec3(-0.5f, 0, 0));
+        glm::mat4 view = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
 
-        //Shader shader("res/shaders/Texture_x_Color.shader");
+        Shader shader("res/shaders/Texture_x_Color.shader");
         //Shader shader("res/shaders/Texture+Color.shader");
-        Shader shader("res/shaders/Texture.shader");
+        //Shader shader("res/shaders/Texture.shader");
         shader.Bind();
         shader.SetUniform4f("u_Color", 0.2f, 0.3f, 0.8f, 1.0f);
 
         //Texture texture("res/textures/FreshNewAvatar.png");
         Texture texture("res/textures/SquirtleCloseUp.png");
+        //Texture texture("res/textures/DankSquirtle.png");
+        //Texture texture("res/textures/Comudoru.png");
         texture.Bind();
         shader.SetUniform1i("u_Texture", 0);
 
@@ -119,7 +121,8 @@ int main(void)
         ImGui_ImplGlfw_InitForOpenGL(window, true);
         ImGui_ImplOpenGL3_Init(glsl_version);
 
-        glm::vec3 translation(0.25f, 0.5f, 0);
+        glm::vec3 translationA(0.25f, 0.5f, 0);
+        glm::vec3 translationB(-0.5f, -0.5f, 0);
 
         // Our state
         bool show_demo_window = true;
@@ -143,14 +146,23 @@ int main(void)
             ImGui_ImplGlfw_NewFrame();
             ImGui::NewFrame();
 
-            glm::mat4 model = glm::translate(glm::mat4(1.0f), translation);
-            glm::mat4 mvp = proj * view * model;
-
             shader.Bind();
-            shader.SetUniform4f("u_Color", r, g, b, 1.0f);
-            shader.SetUniformMat4f("u_MVP", mvp);
 
-            renderer.Draw(va, ib, shader);
+            {
+                glm::mat4 model = glm::translate(glm::mat4(1.0f), translationA);
+                glm::mat4 mvp = proj * view * model;
+                shader.SetUniform4f("u_Color", r, g, b, 1.0f);
+                shader.SetUniformMat4f("u_MVP", mvp);
+                renderer.Draw(va, ib, shader);
+            }
+
+            {
+                glm::mat4 model = glm::translate(glm::mat4(1.0f), translationB);
+                glm::mat4 mvp = proj * view * model;
+                shader.SetUniform4f("u_Color", 1.0f, 1.0f, 1.0f, 0.5f);
+                shader.SetUniformMat4f("u_MVP", mvp);
+                renderer.Draw(va, ib, shader);
+            }
 
             rIncrement = 0.05f * (r < 0.0f) - 0.05f * (r > 1.0f) + rIncrement * (r <= 1.0f && r >= 0.0f);
             gIncrement = 0.08f * (g < 0.0f) - 0.08f * (g > 1.0f) + gIncrement * (g <= 1.0f && g >= 0.0f);;
@@ -163,7 +175,8 @@ int main(void)
             // Show a simple window that we create ourselves. We use a Begin/End pair to created a named window.
             {
                 ImGui::Begin("ImGUI");
-                ImGui::SliderFloat3("Translation", &translation.x, -1.5f, 1.5f);
+                ImGui::SliderFloat3("Translation A (X,Y,Z)", &translationA.x, -1.5f, 1.5f);
+                ImGui::SliderFloat3("Translation B (X,Y,Z)", &translationB.x, -1.5f, 1.5f);
                 ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
                 ImGui::End();
             }

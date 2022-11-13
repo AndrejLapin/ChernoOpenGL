@@ -1385,5 +1385,11 @@
     <Image Include="res\textures\SquirtleCloseUp.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="res\textures\DankSquirtle.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\textures\Comudoru.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
