@@ -15,6 +15,10 @@ void GLClearError();
 
 bool GLLogCall(const char* function, const char* file, int line);
 
+const int   g_Width     = 640;
+const int   g_Height    = 480;
+const float g_Aspect    = (float)g_Width / g_Height;
+
 class Renderer
 {
 public:

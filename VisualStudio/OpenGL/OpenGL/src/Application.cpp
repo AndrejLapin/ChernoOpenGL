@@ -41,11 +41,8 @@ int main(void)
     //glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     //glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
-    const int Width = 1920;
-    const int Height = 1080;
-    const float Aspect = (float)Width / Height;
     /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(Width, Height, "Hello World", NULL, NULL);
+    window = glfwCreateWindow(g_Width, g_Height, "Hello World", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
@@ -76,8 +73,7 @@ int main(void)
         ImGui_ImplGlfw_InitForOpenGL(window, true);
         ImGui_ImplOpenGL3_Init(glsl_version);
 
-        test::TestClearColor test;
-        test::TestMenu menu;
+        test::TestMenu menu(renderer);
 
         while (!glfwWindowShouldClose(window))
         {
@@ -87,16 +83,12 @@ int main(void)
             menu.OnUpdate(0.0f);
             menu.OnRender();
 
-            test.OnUpdate(0.0f);
-            test.OnRender();
-
             // Start the Dear ImGui frame
             ImGui_ImplOpenGL3_NewFrame();
             ImGui_ImplGlfw_NewFrame();
             ImGui::NewFrame();
 
             menu.OnImGuiRender();
-            test.OnImGuiRender();
 
             // Rendering
             ImGui::Render();

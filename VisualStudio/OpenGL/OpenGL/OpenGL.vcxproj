@@ -177,6 +177,7 @@
     <ClCompile Include="src\VertexArray.cpp" />
     <ClCompile Include="src\Texture.cpp" />
     <ClCompile Include="src\tests\TestMenu.cpp" />
+    <ClCompile Include="src\tests\TestTexture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\shaders\SolidColor.shader" />
@@ -624,6 +625,7 @@
     <ClInclude Include="src\VertexBufferLayout.h" />
     <ClInclude Include="src\Texture.h" />
     <ClInclude Include="src\tests\TestMenu.h" />
+    <ClInclude Include="src\tests\TestTexture.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\textures\Comudoru.png" />
