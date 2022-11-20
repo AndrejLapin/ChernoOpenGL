@@ -2,6 +2,8 @@
 
 #include "Test.h"
 
+class Renderer;
+
 namespace test 
 {
     class TestClearColor : public Test

@@ -6,75 +6,76 @@
 #include "TestClearColor.h"
 #include "TestTexture.h"
 
+#include "Utils.h"
+
 namespace test
 {
-    const std::string TestMenu::TestNames::m_ClearColor = "ClearColor";
-    const std::string TestMenu::TestNames::m_Texture = "Texture";
-
-    TestMenu::TestMenu(Renderer& renderer)
-        :m_enableClearColor(false),
-        m_enableTextureTest(false),
-        myRenderer(&renderer)
+    TestMenu::TestMenu()
     {
     }
 
     TestMenu::~TestMenu()
     {
-        for (auto test : m_testList)
+        for (auto& registeredTest : m_registeredTests)
         {
-            if (test.second)
-            {
-                delete(test.second);
-                test.second = nullptr;
-            }
+            SAFE_DELETE(registeredTest.m_instance);
         }
-        m_testList.clear();
     }
 
     void TestMenu::OnUpdate(float deltaTime)
     {
-        for (auto test : m_testList)
+        for (auto& registeredTest : m_registeredTests)
         {
-            test.second->OnUpdate(deltaTime);
-        }
+            if (registeredTest.m_active && !registeredTest.m_instance)
+            {
+                registeredTest.m_instance = registeredTest.m_constructor();
+                registeredTest.m_instance->SetRenderer(m_Renderer);
+                registeredTest.m_instance->SetName(registeredTest.m_name);
+            }
+            else if (!registeredTest.m_active && registeredTest.m_instance)
+            {
+                SAFE_DELETE(registeredTest.m_instance);
+            }
 
-        if (m_enableClearColor && m_testList.find(TestNames::m_ClearColor) == m_testList.end())
-        {
-            m_testList[TestNames::m_ClearColor] = new TestClearColor();
-        }
-        else if (!m_enableClearColor && m_testList.find(TestNames::m_ClearColor) != m_testList.end())
-        {
-            delete(m_testList[TestNames::m_ClearColor]);
-            m_testList.erase(TestNames::m_ClearColor);
-        }
-
-        if (m_enableTextureTest && m_testList.find(TestNames::m_Texture) == m_testList.end())
-        {
-            m_testList[TestNames::m_Texture] = new TestTexture(*myRenderer);
-        }
-        else if (!m_enableTextureTest && m_testList.find(TestNames::m_Texture) != m_testList.end())
-        {
-            delete(m_testList[TestNames::m_Texture]);
-            m_testList.erase(TestNames::m_Texture);
+            if (registeredTest.m_instance)
+            {
+                registeredTest.m_instance->OnUpdate(deltaTime);
+            }
         }
     }
 
     void TestMenu::OnRender()
     {
-        for (auto test : m_testList)
+        for (auto& registeredTest : m_registeredTests)
         {
-            test.second->OnRender();
+            if(registeredTest.m_instance)
+            registeredTest.m_instance->OnRender();
         }
     }
 
     void TestMenu::OnImGuiRender()
     {
-        ImGui::Checkbox("Load clear color test", &m_enableClearColor);
-        ImGui::Checkbox("Load texture test", &m_enableTextureTest);
-
-        for (auto test : m_testList)
+        if (ImGui::CollapsingHeader("Test list:", true))
         {
-            test.second->OnImGuiRender();
+            for (auto& registeredTest : m_registeredTests)
+            {
+                char buffer[256];
+                std::sprintf(buffer, "Load %s", registeredTest.m_name);
+                ImGui::Checkbox(buffer, &registeredTest.m_active);
+            }
         }
+
+        for (auto& registeredTest : m_registeredTests)
+        {
+            if (registeredTest.m_instance)
+            registeredTest.m_instance->OnImGuiRender();
+        }
+
+        ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+    }
+
+    void TestMenu::ReserveRegisteredTests(unsigned int size)
+    {
+        m_registeredTests.reserve(size);
     }
 }

@@ -8,9 +8,11 @@
 #include "Shader.h"
 #include "Texture.h"
 
+#include "imgui/imgui.h"
+
 namespace test
 {
-    TestTexture::TestTexture(Renderer& renderer)
+    TestTexture::TestTexture()
         :m_Positions(nullptr),
         m_Indecies(nullptr),
         m_va(nullptr),
@@ -19,7 +21,6 @@ namespace test
         m_ib(nullptr),
         m_shader(nullptr),
         m_texture(nullptr),
-        myRenderer(&renderer),
         m_translation(0.0f, 0.0f, 0.0f),
         m_proj(glm::ortho(-1.0f * g_Aspect, 1.0f * g_Aspect, -1.0f, 1.0f, -1.0f, 1.0f)),
         m_color(1.0f, 1.0f, 1.0f, 1.0f),
@@ -132,11 +133,14 @@ namespace test
         glm::mat4 mvp = m_proj * m_view * model;
         m_shader->SetUniform4f("u_Color", m_color.r, m_color.g, m_color.b, m_color.a);
         m_shader->SetUniformMat4f("u_MVP", mvp);
-        myRenderer->Draw(*m_va, *m_ib, *m_shader);
+        m_Renderer->Draw(*m_va, *m_ib, *m_shader);
     }
 
     void TestTexture::OnImGuiRender()
     {
-
+        if (ImGui::CollapsingHeader(m_Name, false))
+        {
+            ImGui::SliderFloat3("Translation", &m_translation.x, -1.5f, 1.5f);
+        }
     }
 }

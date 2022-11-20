@@ -6,7 +6,7 @@
 namespace test
 {
     TestClearColor::TestClearColor()
-        : m_ClearColor { 0.2f, 0.3f, 0.8f, 1.0f }
+        :m_ClearColor { 0.2f, 0.3f, 0.8f, 1.0f }
     {
     }
 
@@ -26,6 +26,9 @@ namespace test
 
     void TestClearColor::OnImGuiRender()
     {
-        ImGui::ColorEdit4("Clear color", m_ClearColor);
+        if (ImGui::CollapsingHeader(m_Name, false))
+        {
+            ImGui::ColorEdit4("Clear color", m_ClearColor);
+        }
     }
 }

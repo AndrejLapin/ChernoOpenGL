@@ -17,7 +17,7 @@ namespace test
     class TestTexture :public Test
     {
     public:
-        TestTexture(Renderer& renderer);
+        TestTexture();
         ~TestTexture();
 
         void OnUpdate(float deltaTime);
@@ -41,7 +41,5 @@ namespace test
         IndexBuffer*            m_ib;
         Shader*                 m_shader;
         Texture*                m_texture;
-
-        Renderer*               myRenderer;
     };
 }

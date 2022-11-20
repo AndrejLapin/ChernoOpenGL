@@ -23,6 +23,7 @@
 #include "imgui/imgui_impl_opengl3.h"
 
 #include "tests/TestClearColor.h"
+#include "tests/TestTexture.h"
 #include "tests/TestMenu.h"
 
 int main(void)
@@ -33,13 +34,7 @@ int main(void)
     if (!glfwInit())
         return -1;
 
-    /*glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);*/
-
     const char* glsl_version = "#version 130";
-    //glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    //glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
     /* Create a windowed mode window and its OpenGL context */
     window = glfwCreateWindow(g_Width, g_Height, "Hello World", NULL, NULL);
@@ -73,7 +68,11 @@ int main(void)
         ImGui_ImplGlfw_InitForOpenGL(window, true);
         ImGui_ImplOpenGL3_Init(glsl_version);
 
-        test::TestMenu menu(renderer);
+        test::TestMenu menu;
+        menu.SetRenderer(&renderer);
+        menu.ReserveRegisteredTests(2);
+        menu.RegisterTest<test::TestClearColor>("Clear color");
+        menu.RegisterTest<test::TestTexture>("Texture");
 
         while (!glfwWindowShouldClose(window))
         {
