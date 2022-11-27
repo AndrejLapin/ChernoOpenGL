@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -182,9 +182,14 @@
     <ClCompile Include="src\Texture.cpp" />
     <ClCompile Include="src\tests\TestMenu.cpp" />
     <ClCompile Include="src\tests\TestTexture.cpp" />
+    <ClCompile Include="src\tests\TestTrueTexture.cpp" />
+    <ClCompile Include="src\TrueTexture.cpp" />
+    <ClCompile Include="src\tests\TestBatchRendering.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="res\shaders\BatchTexture.shader" />
     <None Include="res\shaders\SolidColor.shader" />
+    <None Include="res\shaders\SolidVertexColor.shader" />
     <None Include="res\shaders\Texture+Color.shader" />
     <None Include="res\shaders\Texture.shader" />
     <None Include="res\shaders\TextureColorReplace.shader" />
@@ -631,6 +636,9 @@
     <ClInclude Include="src\Texture.h" />
     <ClInclude Include="src\tests\TestMenu.h" />
     <ClInclude Include="src\tests\TestTexture.h" />
+    <ClInclude Include="src\tests\TestTrueTexture.h" />
+    <ClInclude Include="src\TrueTexture.h" />
+    <ClInclude Include="src\tests\TestBatchRendering.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\textures\Comudoru.png" />

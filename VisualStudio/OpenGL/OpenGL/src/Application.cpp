@@ -5,6 +5,8 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+#include <chrono>
+#include <algorithm>
 
 #include "Renderer.h"
 
@@ -24,6 +26,8 @@
 
 #include "tests/TestClearColor.h"
 #include "tests/TestTexture.h"
+#include "tests/TestTrueTexture.h"
+#include "tests/TestBatchRendering.h"
 #include "tests/TestMenu.h"
 
 int main(void)
@@ -47,7 +51,7 @@ int main(void)
     /* Make the window's context current */
     glfwMakeContextCurrent(window);
 
-    glfwSwapInterval(1); // Enable vsync. Sometimes vsync can be enabled by default, to disable pass 0 as parameter.
+    glfwSwapInterval(0); // Enable vsync. Sometimes vsync can be enabled by default, to disable pass 0 as parameter.
 
     if (glewInit() != GLEW_OK)
     {
@@ -70,16 +74,21 @@ int main(void)
 
         test::TestMenu menu;
         menu.SetRenderer(&renderer);
-        menu.ReserveRegisteredTests(2);
+        menu.ReserveRegisteredTests(4);
         menu.RegisterTest<test::TestClearColor>("Clear color");
         menu.RegisterTest<test::TestTexture>("Texture");
+        menu.RegisterTest<test::TestTrueTexture>("TrueTexture");
+        menu.RegisterTest<test::TestBatchRendering>("Batch Rendering");
+
+        double frameDeltaTime = 0.0f;
 
         while (!glfwWindowShouldClose(window))
         {
+            auto start = std::chrono::steady_clock::now();
             /* Render here */
             renderer.Clear();
 
-            menu.OnUpdate(0.0f);
+            menu.OnUpdate(frameDeltaTime);
             menu.OnRender();
 
             // Start the Dear ImGui frame
@@ -100,6 +109,9 @@ int main(void)
 
             /* Poll for and process events */
             glfwPollEvents();
+
+            auto end = std::chrono::steady_clock::now();
+            frameDeltaTime = std::clamp((std::chrono::duration<double>(end - start)).count(), 0.0, 0.1);
         }
     }
 

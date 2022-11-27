@@ -30,6 +30,8 @@ public:
     void SetUniformMat4f(const std::string& name, const glm::mat4& matrix);
 
     int GetUniformLocation(const std::string& name);
+
+    inline unsigned int GetRendererID() { return m_RendererID; }
 private:
     ShaderProgramSource ParseShader(std::string filePath);
     unsigned int CompileShader(unsigned int type, const std::string& source);
