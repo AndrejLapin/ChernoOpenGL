@@ -183,7 +183,6 @@
     <ClCompile Include="src\tests\TestMenu.cpp" />
     <ClCompile Include="src\tests\TestTexture.cpp" />
     <ClCompile Include="src\tests\TestTrueTexture.cpp" />
-    <ClCompile Include="src\TrueTexture.cpp" />
     <ClCompile Include="src\tests\TestBatchRendering.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -637,7 +636,6 @@
     <ClInclude Include="src\tests\TestMenu.h" />
     <ClInclude Include="src\tests\TestTexture.h" />
     <ClInclude Include="src\tests\TestTrueTexture.h" />
-    <ClInclude Include="src\TrueTexture.h" />
     <ClInclude Include="src\tests\TestBatchRendering.h" />
   </ItemGroup>
   <ItemGroup>

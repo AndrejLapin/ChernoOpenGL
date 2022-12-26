@@ -75,9 +75,6 @@
     <ClCompile Include="src\tests\TestTrueTexture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\TrueTexture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\tests\TestBatchRendering.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1413,9 +1410,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\tests\TestTrueTexture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\TrueTexture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\tests\TestBatchRendering.h">

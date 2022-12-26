@@ -7,7 +7,7 @@ class VertexBuffer;
 class VertexBufferLayout;
 class IndexBuffer;
 class Shader;
-class TrueTexture;
+class Texture;
 class Renderer;
 
 #include "glm/glm.hpp"
@@ -42,6 +42,6 @@ namespace test
         VertexBufferLayout* m_layout;
         IndexBuffer* m_ib;
         Shader* m_shader;
-        TrueTexture* m_texture;
+        Texture* m_texture;
     };
 }

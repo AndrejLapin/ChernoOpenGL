@@ -1,5 +1,5 @@
 #shader vertex
-#version 450 core
+#version 330 core
 
 layout(location = 0) in vec4 position;
 layout(location = 1) in vec2 texCoord;
@@ -9,15 +9,18 @@ layout(location = 3) in float texIndex;
 out vec2 v_TexCoord;
 out float v_TexIndex;
 
+uniform mat4 u_MVP;
+uniform vec2 u_aspect;
+
 void main()
 {
-   gl_Position = position;
-   v_TexCoord = texCoord;
+   gl_Position = vec4(position.x, position.y, position.z, position.w) * u_MVP;
+   v_TexCoord = texCoord;// / u_aspect;
    v_TexIndex = texIndex;
 };
 
 #shader fragment
-#version 450 core
+#version 330 core
 
 layout(location = 0) out vec4 color;
 
@@ -30,5 +33,5 @@ void main()
 {
     int index = int(v_TexIndex);
 
-    color = texture(u_Textures[index], v_TexCoord);
+    color = vec4(1.0, 1.0, 1.0, 1.0);// texture(u_Textures[index], v_TexCoord);
 };

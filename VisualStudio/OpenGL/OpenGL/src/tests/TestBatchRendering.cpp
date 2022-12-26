@@ -8,7 +8,6 @@
 #include "VertexBufferLayout.h"
 #include "Shader.h"
 #include "Texture.h"
-#include "TrueTexture.h"
 #include "Utils.h"
 
 #include "imgui/imgui.h"
@@ -60,7 +59,7 @@ test::TestBatchRendering::TestBatchRendering()
     m_ib = new IndexBuffer(m_Indecies, 12);
 
     m_texture = new Texture("res/textures/SquirtleCloseUp.png");
-    m_trueTexture = new TrueTexture("res/textures/Character.png");
+    m_trueTexture = new Texture("res/textures/Character.png", Texture::NEAREST);
 
     m_shader = new Shader("res/shaders/BatchTexture.shader");
     m_shader->Bind();
@@ -105,10 +104,11 @@ void test::TestBatchRendering::OnRender()
     GLCall(glBindTextureUnit(0, m_texture->GetRendererId()));
     GLCall(glBindTextureUnit(1, m_trueTexture->GetRendererId()));
     m_shader->Bind();
-    //glm::mat4 model = glm::translate(glm::mat4(1.0f), m_translation);
-    //glm::mat4 mvp = m_proj * m_view * model;
-    m_shader->SetUniform4f("u_Color", m_color.r, m_color.g, m_color.b, m_color.a);
-    //m_shader->SetUniformMat4f("u_MVP", mvp);
+    glm::mat4 model = glm::translate(glm::mat4(1.0f), m_translation);
+    glm::mat4 mvp = m_proj;// *m_view* model;
+    //m_shader->SetUniform4f("u_Color", m_color.r, m_color.g, m_color.b, m_color.a);
+    m_shader->SetUniformMat4f("u_MVP", mvp);
+    //m_shader->SetUniform2f("u_aspect", g_Aspect, 1);
     m_Renderer->Draw(*m_va, *m_ib, *m_shader);
 }
 

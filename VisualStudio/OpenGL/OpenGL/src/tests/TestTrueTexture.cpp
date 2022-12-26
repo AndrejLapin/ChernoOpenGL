@@ -6,7 +6,7 @@
 #include "VertexArray.h"
 #include "VertexBufferLayout.h"
 #include "Shader.h"
-#include "TrueTexture.h"
+#include "Texture.h"
 #include "Utils.h"
 
 #include "imgui/imgui.h"
@@ -50,7 +50,7 @@ namespace test
         m_ib = new IndexBuffer(m_Indecies, 6);
 
         m_shader = new Shader("res/shaders/Texture_x_Color.shader");
-        m_texture = new TrueTexture("res/textures/Character.png");
+        m_texture = new Texture("res/textures/Character.png", Texture::NEAREST);
 
         m_layout->Push<float>(2);
         m_layout->Push<float>(2);
