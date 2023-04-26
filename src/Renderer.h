@@ -1,12 +1,17 @@
 #pragma once
 
-#include <GL/glew.h>
+#include "GL/glew.h"
+//#include <GL/glew.h>
 
 class VertexArray;
 class IndexBuffer;
 class Shader;
 
+#if defined (XCODE)
+#define ASSERT(x) if (!(x)) __builtin_debugtrap();
+#else
 #define ASSERT(x) if (!(x)) __debugbreak();
+#endif
 #define GLCall(x) GLClearError();\
     x;\
     ASSERT(GLLogCall(#x, __FILE__, __LINE__))
