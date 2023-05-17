@@ -22,16 +22,17 @@
 		7717EF6D29EFF83700005603 /* imgui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7717EDA929EFF83500005603 /* imgui.cpp */; };
 		7717EF6E29EFF83700005603 /* imgui_impl_opengl3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7717EDAC29EFF83500005603 /* imgui_impl_opengl3.cpp */; };
 		7717EF6F29EFF83700005603 /* imgui_tables.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7717EDAE29EFF83500005603 /* imgui_tables.cpp */; };
-		7717EF7029EFF83700005603 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7717EDAF29EFF83500005603 /* main.cpp */; };
 		7717EF7129EFF83700005603 /* imgui_impl_glfw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7717EDB029EFF83500005603 /* imgui_impl_glfw.cpp */; };
 		7717EF7229EFF83700005603 /* imgui_demo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7717EDB129EFF83500005603 /* imgui_demo.cpp */; };
 		7717EF7329EFF83700005603 /* imgui_draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7717EDB229EFF83500005603 /* imgui_draw.cpp */; };
 		7717EF7429EFF83700005603 /* stb_image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7717EDB529EFF83500005603 /* stb_image.cpp */; };
 		7717EF7529EFF83700005603 /* glm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7717EEA329EFF83600005603 /* glm.cpp */; };
 		7717EF7629EFF83700005603 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7717EF6029EFF83700005603 /* Renderer.cpp */; };
+		77436A4829FFB59300161014 /* libGLEW.2.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 77436A2629FD0B3700161014 /* libGLEW.2.2.0.dylib */; };
+		77436A4929FFB59400161014 /* libGLEW.2.2.0.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 77436A2629FD0B3700161014 /* libGLEW.2.2.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		77436C6A2A14E2CD00161014 /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 77436C692A14E2CD00161014 /* libglfw.3.3.dylib */; };
+		77436C6B2A14E2CD00161014 /* libglfw.3.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 77436C692A14E2CD00161014 /* libglfw.3.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		778E92A829F937910092FBDF /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 778E92A729F937910092FBDF /* OpenGL.framework */; };
-		778E92B229F9752D0092FBDF /* libglfw.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 778E92AF29F9751C0092FBDF /* libglfw.3.dylib */; };
-		778E92B329F9752D0092FBDF /* libglfw.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 778E92AF29F9751C0092FBDF /* libglfw.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,13 +45,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
-		778E92B429F9752D0092FBDF /* Embed Libraries */ = {
+		77436A2E29FD688800161014 /* Embed Libraries */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				778E92B329F9752D0092FBDF /* libglfw.3.dylib in Embed Libraries */,
+				77436C6B2A14E2CD00161014 /* libglfw.3.3.dylib in Embed Libraries */,
+				77436A4929FFB59400161014 /* libGLEW.2.2.0.dylib in Embed Libraries */,
 			);
 			name = "Embed Libraries";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,7 +98,6 @@
 		7717EDAC29EFF83500005603 /* imgui_impl_opengl3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_impl_opengl3.cpp; sourceTree = "<group>"; };
 		7717EDAD29EFF83500005603 /* imstb_rectpack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imstb_rectpack.h; sourceTree = "<group>"; };
 		7717EDAE29EFF83500005603 /* imgui_tables.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_tables.cpp; sourceTree = "<group>"; };
-		7717EDAF29EFF83500005603 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		7717EDB029EFF83500005603 /* imgui_impl_glfw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_impl_glfw.cpp; sourceTree = "<group>"; };
 		7717EDB129EFF83500005603 /* imgui_demo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_demo.cpp; sourceTree = "<group>"; };
 		7717EDB229EFF83500005603 /* imgui_draw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_draw.cpp; sourceTree = "<group>"; };
@@ -567,9 +568,11 @@
 		7717EFAE29EFF97300005603 /* glfw3.lib */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = glfw3.lib; sourceTree = "<group>"; };
 		7717EFB129EFF97300005603 /* glfw3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glfw3.h; sourceTree = "<group>"; };
 		7717EFB229EFF97300005603 /* glfw3native.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glfw3native.h; sourceTree = "<group>"; };
+		77436A2629FD0B3700161014 /* libGLEW.2.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.2.0.dylib; path = ../Dependencies/GLEW/lib/Release/ARM/libGLEW.2.2.0.dylib; sourceTree = "<group>"; };
+		77436A3429FD7B7600161014 /* XCode_ChernoGL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = XCode_ChernoGL; sourceTree = BUILT_PRODUCTS_DIR; };
+		77436C692A14E2CD00161014 /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = "../Dependencies/GLFW/lib-arm64/libglfw.3.3.dylib"; sourceTree = "<group>"; };
 		778E92A729F937910092FBDF /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		778E92AF29F9751C0092FBDF /* libglfw.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.dylib; path = "../Dependencies/GLFW/lib-arm64/libglfw.3.dylib"; sourceTree = "<group>"; };
-		778E92B929F9B81A0092FBDF /* XCode_ChernoGL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = XCode_ChernoGL; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -577,8 +580,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77436C6A2A14E2CD00161014 /* libglfw.3.3.dylib in Frameworks */,
 				778E92A829F937910092FBDF /* OpenGL.framework in Frameworks */,
-				778E92B229F9752D0092FBDF /* libglfw.3.dylib in Frameworks */,
+				77436A4829FFB59300161014 /* libGLEW.2.2.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,7 +596,8 @@
 				7717EF7729EFF86B00005603 /* res */,
 				7717ED8529EFF83500005603 /* src */,
 				778E92A629F937910092FBDF /* Frameworks */,
-				778E92B929F9B81A0092FBDF /* XCode_ChernoGL */,
+				77436A3E29FD8A7600161014 /* Products */,
+				77436A3429FD7B7600161014 /* XCode_ChernoGL */,
 			);
 			sourceTree = "<group>";
 		};
@@ -624,16 +629,16 @@
 		7717ED8C29EFF83500005603 /* tests */ = {
 			isa = PBXGroup;
 			children = (
-				7717ED8D29EFF83500005603 /* TestBatchRendering.cpp */,
-				7717ED8E29EFF83500005603 /* TestTexture.h */,
-				7717ED8F29EFF83500005603 /* TestTexture.cpp */,
 				7717ED9029EFF83500005603 /* Test.h */,
-				7717ED9129EFF83500005603 /* TestClearColor.h */,
+				7717ED8F29EFF83500005603 /* TestTexture.cpp */,
+				7717ED8E29EFF83500005603 /* TestTexture.h */,
+				7717ED8D29EFF83500005603 /* TestBatchRendering.cpp */,
 				7717ED9229EFF83500005603 /* TestBatchRendering.h */,
 				7717ED9329EFF83500005603 /* TestTrueTexture.cpp */,
 				7717ED9429EFF83500005603 /* TestTrueTexture.h */,
-				7717ED9529EFF83500005603 /* TestMenu.cpp */,
 				7717ED9629EFF83500005603 /* TestClearColor.cpp */,
+				7717ED9129EFF83500005603 /* TestClearColor.h */,
+				7717ED9529EFF83500005603 /* TestMenu.cpp */,
 				7717ED9729EFF83500005603 /* TestMenu.h */,
 			);
 			path = tests;
@@ -665,7 +670,6 @@
 				7717EDAC29EFF83500005603 /* imgui_impl_opengl3.cpp */,
 				7717EDAD29EFF83500005603 /* imstb_rectpack.h */,
 				7717EDAE29EFF83500005603 /* imgui_tables.cpp */,
-				7717EDAF29EFF83500005603 /* main.cpp */,
 				7717EDB029EFF83500005603 /* imgui_impl_glfw.cpp */,
 				7717EDB129EFF83500005603 /* imgui_demo.cpp */,
 				7717EDB229EFF83500005603 /* imgui_draw.cpp */,
@@ -1321,9 +1325,18 @@
 			path = GLFW;
 			sourceTree = "<group>";
 		};
+		77436A3E29FD8A7600161014 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
 		778E92A629F937910092FBDF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				77436C692A14E2CD00161014 /* libglfw.3.3.dylib */,
+				77436A2629FD0B3700161014 /* libGLEW.2.2.0.dylib */,
 				778E92AF29F9751C0092FBDF /* libglfw.3.dylib */,
 				778E92A729F937910092FBDF /* OpenGL.framework */,
 			);
@@ -1340,7 +1353,7 @@
 				7717ED7729EFF7E000005603 /* Sources */,
 				7717ED7829EFF7E000005603 /* Frameworks */,
 				7717ED7929EFF7E000005603 /* CopyFiles */,
-				778E92B429F9752D0092FBDF /* Embed Libraries */,
+				77436A2E29FD688800161014 /* Embed Libraries */,
 			);
 			buildRules = (
 			);
@@ -1348,7 +1361,7 @@
 			);
 			name = XCode_ChernoGL;
 			productName = XCode_ChernoGL;
-			productReference = 778E92B929F9B81A0092FBDF /* XCode_ChernoGL */;
+			productReference = 77436A3429FD7B7600161014 /* XCode_ChernoGL */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -1388,14 +1401,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7717EF6A29EFF83700005603 /* main.cpp in Sources */,
 				7717EF6729EFF83700005603 /* TestClearColor.cpp in Sources */,
 				7717EF6B29EFF83700005603 /* IndexBuffer.cpp in Sources */,
 				7717EF7329EFF83700005603 /* imgui_draw.cpp in Sources */,
-				7717EF6A29EFF83700005603 /* main.cpp in Sources */,
 				7717EF6429EFF83700005603 /* TestTexture.cpp in Sources */,
 				7717EF7529EFF83700005603 /* glm.cpp in Sources */,
 				7717EF7229EFF83700005603 /* imgui_demo.cpp in Sources */,
-				7717EF7029EFF83700005603 /* main.cpp in Sources */,
 				7717EF6D29EFF83700005603 /* imgui.cpp in Sources */,
 				7717EF7429EFF83700005603 /* stb_image.cpp in Sources */,
 				7717EF6F29EFF83700005603 /* imgui_tables.cpp in Sources */,
@@ -1531,6 +1543,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HRLV8KGVBT;
 				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					XCODE,
 					"DEBUG=1",
@@ -1538,10 +1551,15 @@
 				HEADER_SEARCH_PATHS = (
 					../Dependencies/GLFW/include,
 					../Dependencies/GLEW/include,
+					../src/vendor/,
 				);
 				LIBRARY_SEARCH_PATHS = (
-					../Dependencies/GLFW/include/,
-					"/usr/local/glfw/lib-arm64",
+					"../Dependencies/GLFW/lib-arm64",
+					../Dependencies/GLEW/lib/Release/ARM,
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-v",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = (
@@ -1551,6 +1569,7 @@
 					../Dependencies/GLFW/include/,
 					../src/vendor/,
 				);
+				WARNING_LDFLAGS = "-v";
 			};
 			name = Debug;
 		};
@@ -1560,14 +1579,20 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HRLV8KGVBT;
 				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PREPROCESSOR_DEFINITIONS = XCODE;
 				HEADER_SEARCH_PATHS = (
 					../Dependencies/GLFW/include,
 					../Dependencies/GLEW/include,
+					../src/vendor/,
 				);
 				LIBRARY_SEARCH_PATHS = (
-					../Dependencies/GLFW/include/,
-					"/usr/local/glfw/lib-arm64",
+					"../Dependencies/GLFW/lib-arm64",
+					../Dependencies/GLEW/lib/Release/ARM,
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-v",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = (
@@ -1577,6 +1602,7 @@
 					../Dependencies/GLFW/include/,
 					../src/vendor/,
 				);
+				WARNING_LDFLAGS = "-v";
 			};
 			name = Release;
 		};

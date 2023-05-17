@@ -38,9 +38,12 @@ int main(void)
     if (!glfwInit())
         return -1;
 
-    const char* glsl_version = "#version 130";
-
-    /* Create a windowed mode window and its OpenGL context */
+    const char* glsl_version = "#version 330";
+    
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     window = glfwCreateWindow(g_Width, g_Height, "Hello World", NULL, NULL);
     if (!window)
     {
@@ -59,6 +62,8 @@ int main(void)
     }
 
     std::cout << glGetString(GL_VERSION) << std::endl;
+    
+    std::cout << glGetString(GL_RENDERER) << "\n";
 
     {
         GLCall(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));

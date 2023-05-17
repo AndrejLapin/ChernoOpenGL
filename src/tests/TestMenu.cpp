@@ -8,6 +8,8 @@
 
 #include "Utils.h"
 
+#include <cstdio>
+
 namespace test
 {
     TestMenu::TestMenu()
