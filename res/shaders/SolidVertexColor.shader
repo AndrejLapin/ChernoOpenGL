@@ -11,7 +11,7 @@ void main()
 {
    v_Color = a_Color;
    gl_Position = a_Position;
-};
+}
 
 #shader fragment
 #version 330 core
@@ -25,4 +25,4 @@ in vec4 v_Color;
 void main()
 {
     o_Color = v_Color;
-};
+}

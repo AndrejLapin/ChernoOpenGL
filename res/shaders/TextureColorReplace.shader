@@ -10,7 +10,7 @@ void main()
 {
    gl_Position = position;
    v_TexCoord = texCoord;
-};
+}
 
 #shader fragment
 #version 330 core
@@ -31,4 +31,4 @@ void main()
         textColor = u_Color;
     }
     color = textColor;
-};
+}

@@ -12,7 +12,7 @@ void main()
 {
    gl_Position = u_MVP * position;
    v_TexCoord = texCoord;
-};
+}
 
 #shader fragment
 #version 330 core
@@ -28,4 +28,4 @@ void main()
 {
     vec4 textColor = texture(u_Texture, v_TexCoord);
     color = textColor;
-};
+}

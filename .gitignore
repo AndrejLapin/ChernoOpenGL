@@ -9,8 +9,11 @@
 *.user
 *.userosscache
 *.sln.docstates
-## User settings
+imgui.ini
+
+## xcode User settings
 xcuserdata/
+xcshareddata/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
